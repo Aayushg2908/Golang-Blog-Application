@@ -40,11 +40,14 @@ const CreateBlogPage = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsLoading(true);
-      const response = await axios.post("http://localhost:8080/api/create", {
-        authorId: userId,
-        title: values.title,
-        content: values.content,
-      });
+      const response = await axios.post(
+        `${process.env.BACKEND_URL}/api/create`,
+        {
+          authorId: userId,
+          title: values.title,
+          content: values.content,
+        }
+      );
       const data = await response.data;
       const status = await response.status;
       if (status === 400) {

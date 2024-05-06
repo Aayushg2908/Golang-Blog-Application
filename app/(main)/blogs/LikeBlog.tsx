@@ -14,7 +14,7 @@ const LikeBlog = ({ blog, userId }: { blog: any; userId: string }) => {
   const handleLike = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:8080/api/likeBlog/${blog.id}`,
+        `${process.env.BACKEND_URL}/api/likeBlog/${blog.id}`,
         { userId }
       );
       if (response.status === 400) {

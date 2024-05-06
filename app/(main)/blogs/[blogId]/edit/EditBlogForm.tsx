@@ -50,7 +50,7 @@ const EditBlogForm = ({ blog }: { blog: any }) => {
     try {
       setIsLoading(true);
       const response = await axios.put(
-        `http://localhost:8080/api/updateBlog/${blog.id}`,
+        `${process.env.BACKEND_URL}/api/updateBlog/${blog.id}`,
         {
           userId: userId,
           title: values.title,

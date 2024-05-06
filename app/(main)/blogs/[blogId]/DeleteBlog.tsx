@@ -14,7 +14,7 @@ const DeleteBlog = ({ blogId, userId }: { blogId: string; userId: string }) => {
     try {
       setIsLoading(true);
       const response = await axios.delete(
-        `http://localhost:8080/api/deleteBlog/${blogId}`,
+        `${process.env.BACKEND_URL}/api/deleteBlog/${blogId}`,
         {
           data: { userId: userId },
         }

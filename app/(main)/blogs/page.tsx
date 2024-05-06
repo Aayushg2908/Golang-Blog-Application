@@ -11,7 +11,9 @@ const BlogsPage = async () => {
     return redirect("/sign-in");
   }
 
-  const response = await axios.get("http://localhost:8080/api/getAllBlogs");
+  const response = await axios.get(
+    `${process.env.BACKEND_URL}/api/getAllBlogs`
+  );
   const blogs = await response.data.data;
 
   return (

@@ -42,7 +42,7 @@ const CommentsForm = ({
     try {
       setIsLoading(true);
       const response = await axios.post(
-        `http://localhost:8080/api/createComment/${blogId}`,
+        `${process.env.BACKEND_URL}/api/createComment/${blogId}`,
         {
           authorId: userId,
           content: values.content,

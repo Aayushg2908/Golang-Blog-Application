@@ -15,7 +15,7 @@ const Comments = ({ comments, userId }: { comments: any; userId: string }) => {
     try {
       setIsLoading(true);
       const response = await axios.delete(
-        `http://localhost:8080/api/deleteComment/${commentId}`,
+        `${process.env.BACKEND_URL}/api/deleteComment/${commentId}`,
         {
           data: { userId },
         }

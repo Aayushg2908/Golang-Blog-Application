@@ -18,7 +18,7 @@ const BlogPage = async ({ params }: { params: { blogId: string } }) => {
 
   const { blogId } = params;
   const response = await axios.get(
-    `http://localhost:8080/api/getBlog/${blogId}`
+    `${process.env.BACKEND_URL}/api/getBlog/${blogId}`
   );
   const blog = await response.data.data;
 
